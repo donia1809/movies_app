@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/theming/colors.dart';
 import '../../home.dart';
 
@@ -14,12 +15,22 @@ class SplashScreen extends StatelessWidget {
     });
     return Stack(
       children: [
-        Container(
-          color: AppColors.black,
-          child:Scaffold( backgroundColor: AppColors.black,)
-        ),
-        Center(child: Image.asset('assets/images/movies.png',)),
-
+        Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                  padding: EdgeInsets.only(top: 300.h),
+                  child: Image.asset(
+                    'assets/images/movies.png',
+                  )),
+              const Spacer(),
+              Image.asset(
+                'assets/images/route_logo.png',
+              )
+            ],
+          ),
+        )
       ],
     );
   }
