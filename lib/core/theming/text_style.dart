@@ -24,27 +24,28 @@ class TextStyleApp {
     fontWeight: FontWeight.w400,
   );
  static TextStyle font16weight400colorWhite = TextStyle(
-   color: Colors.white,
+   color: AppColors.white,
    fontSize: 16.sp,
    fontFamily: 'Inter',
    fontWeight: FontWeight.w400
  );
 static TextStyle font10weight400colorWhite = TextStyle(
-   color: Colors.white,
+   color: AppColors.white,
    fontSize: 10.sp,
    fontFamily: 'Inter',
    fontWeight: FontWeight.w400
  );
 static TextStyle font14weight400colorWhite = TextStyle(
-   color: Colors.white,
+   color: AppColors.white,
    fontSize: 14.sp,
    fontFamily: 'Inter',
    fontWeight: FontWeight.w400
  );
-static TextStyle font8weight400colorWhite = TextStyle(
-   color: Colors.white,
+static TextStyle font8weight400colorGrey2 = TextStyle(
+   color: AppColors.grey2,
    fontSize: 8.sp,
    fontFamily: 'Inter',
    fontWeight: FontWeight.w400
  );
+
 }

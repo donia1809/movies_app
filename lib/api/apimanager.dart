@@ -1,9 +1,11 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:movies_app/api/details_model/DetailsResponse.dart';
 import 'package:movies_app/api/model/NewReleasesResponse.dart';
 import 'package:movies_app/api/model/PopularMoviesResponse.dart';
 import 'package:movies_app/api/model/RecommendedMoviesResponse.dart';
+import 'package:movies_app/api/similar_model/SimilarResponse.dart';
 import 'model/Search_response.dart';
 
 class Endpoints {
@@ -11,6 +13,8 @@ class Endpoints {
   static const String newReleases = '3/movie/upcoming';
   static const String recommended = '3/movie/top_rated';
   static const String search = '3/search/movie';
+  // static const String details = '3/movie/;
+
 }
 
 ///////////////////////////////
@@ -70,4 +74,63 @@ class ApiManager {
     rethrow;
   }
 }
+
+  /////Details
+  static Future<DetailsResponse> getDetails(int movieId) async {
+    try {
+      var url = Uri.https(
+        BASE_URl,
+        '/3/movie/$movieId',
+        {"api_key": apiKey},
+      );
+      print('API URL: $url');
+      var response = await http.get(url);
+      print('Response status: ${response.statusCode}');
+
+      if (response.statusCode == 200) {
+        var json = jsonDecode(response.body);
+        print("JSON Response: $json");
+
+        var details = DetailsResponse.fromJson(json);
+        return details;
+      } else {
+        print('Error: ${response.statusCode}');
+        print('Response body: ${response.body}');
+        throw Exception('Failed to load movie details. Status Code: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('Error in fetching movie details: $e');
+      throw Exception('Error in fetching movie details: $e');
+    }
+  }
+
+  /////Similar
+  static Future<SimilarResponse> getSimilar(int movieId) async {
+    try {
+      var url = Uri.https(
+        BASE_URl,
+        '/3/movie/$movieId/similar',
+        {"api_key": apiKey},
+      );
+      print('API URL: $url');
+      var response = await http.get(url);
+      print('Response status: ${response.statusCode}');
+
+      if (response.statusCode == 200) {
+        var json = jsonDecode(response.body);
+        print("JSON Response: $json");
+        var similar = SimilarResponse.fromJson(json);
+        return similar;
+      } else {
+        print('Error: ${response.statusCode}');
+        print('Response body: ${response.body}');
+        throw Exception('Failed to load movie details. Status Code: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('Error in fetching movie details: $e');
+      throw Exception('Error in fetching movie details: $e');
+    }
+  }
+
+
 }

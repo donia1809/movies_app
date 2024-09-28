@@ -1,13 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/api/apimanager.dart';
-import 'package:movies_app/api/model/Movie.dart';
-import 'package:movies_app/common/DetailsMovieWidget.dart';
-import 'package:movies_app/common/MovieWidget.dart';
-import 'package:movies_app/core/theming/colors.dart';
-import 'package:movies_app/core/theming/text_style.dart';
 import 'package:movies_app/features/home_screen/NewReleasesWidget.dart';
 import 'package:movies_app/features/home_screen/RecommendedMoviesWidget.dart';
 
@@ -23,8 +17,7 @@ class HomeScreen extends StatelessWidget
  return FutureBuilder(future: ApiManager.getPopularMovies()
      , builder:  (context, snapshot) {
      if(snapshot.connectionState==ConnectionState.waiting){
-       return const Center(child:
-         CircularProgressIndicator(),);
+       return const Center(child: CircularProgressIndicator());
 
      } if(snapshot.hasError){
        return const Center(child: Text('Something went wrong' , style: TextStyle( color: Colors.white),));

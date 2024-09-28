@@ -11,8 +11,8 @@ class RecommendedMoviesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
-      padding: const EdgeInsets.all(12),
-      height: 270,
+      padding: const EdgeInsets.only(left: 12, top: 8),
+      height: 300,
       color: AppColors.blackWithOpacity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

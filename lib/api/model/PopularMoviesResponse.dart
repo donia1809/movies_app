@@ -7,33 +7,33 @@ import 'Movie.dart';
 
 class PopularMoviesResponse {
   PopularMoviesResponse({
-    this.status_code,
-    this.status_message,
+    this.statusCode,
+    this.statusMessage,
     this.success,
       this.page, 
-      this.PopularMovies,
+      this.popularMovies,
       this.totalPages, 
       this.totalResults,});
 
   PopularMoviesResponse.fromJson(dynamic json) {
     page = json['page'];
-   status_message = json['status_message'];
-   status_code = json['status_code'];
+   statusMessage = json['status_message'];
+   statusCode = json['status_code'];
    success = json['success'];
     if (json['results'] != null) {
-      PopularMovies = [];
+      popularMovies = [];
       json['results'].forEach((v) {
-        PopularMovies?.add(Movie.fromJson(v));
+        popularMovies?.add(Movie.fromJson(v));
       });
     }
     totalPages = json['total_pages'];
     totalResults = json['total_results'];
   }
-  String? status_code;
-  String? status_message;
+  String? statusCode;
+  String? statusMessage;
   bool? success;
   num? page;
-  List<Movie>? PopularMovies;
+  List<Movie>? popularMovies;
   num? totalPages;
   num? totalResults;
 PopularMoviesResponse copyWith({  num? page,
@@ -41,15 +41,15 @@ PopularMoviesResponse copyWith({  num? page,
   num? totalPages,
   num? totalResults,
 }) => PopularMoviesResponse(  page: page ?? this.page,
-  PopularMovies: results ?? this.PopularMovies,
+  popularMovies: results ?? this.popularMovies,
   totalPages: totalPages ?? this.totalPages,
   totalResults: totalResults ?? this.totalResults,
 );
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['page'] = page;
-    if (PopularMovies != null) {
-      map['results'] = PopularMovies?.map((v) => v.toJson()).toList();
+    if (popularMovies != null) {
+      map['results'] = popularMovies?.map((v) => v.toJson()).toList();
     }
     map['total_pages'] = totalPages;
     map['total_results'] = totalResults;

@@ -7,8 +7,11 @@ class Theming
   static  ThemeData darkTheme = ThemeData(
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedItemColor: AppColors.yellow1,
-      unselectedItemColor: AppColors.white2,
+      unselectedItemColor: AppColors.grey5,
   ),
   scaffoldBackgroundColor: AppColors.black,
+    appBarTheme: AppBarTheme(
+      color: AppColors.black,
+    )
   );
 }

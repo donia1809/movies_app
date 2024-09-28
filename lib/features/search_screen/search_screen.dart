@@ -8,6 +8,7 @@ import 'package:movies_app/features/search_screen/search_utils.dart';
 import '../../api/model/Search_response.dart';
 import '../../common/ImportantUrl.dart';
 import '../../core/theming/text_style.dart';
+import '../home_screen/movies_details/movies_details.dart';
 
 class SearchScreen extends StatefulWidget {
   static const String routeName = 'search';
@@ -95,33 +96,39 @@ class _SearchScreenState extends State<SearchScreen> {
                           final movie = snapshot.data!.results![index];
                            return Container(
                             padding: EdgeInsets.symmetric(vertical: 10.h),
-                            child: Row(
-                              children: [
-                                Container( width: 60.w,height: 90.h,
-                                  child: CachedNetworkImage(
-                                    imageUrl:ImportantUrl().BaseImageUrl+(movie?.posterPath??''),
-                                    height: MovieWidget().imageHeight?.h,
-                                    placeholder: (context, url) =>
-                                    const Center(child: CircularProgressIndicator()),
-                                    errorWidget: (context, url, error) =>
-                                    const Icon(Icons.error, color: Colors.red),
-                                  ),
-                                )
+                            child: InkWell(
+                              onTap: (){
+                                Navigator.pushNamed(context, MoviesDetails.routeName,
+                                 arguments: {'movieId': movie?.id},);
+                              },
+                              child: Row(
+                                children: [
+                                  Container( width: 60.w,height: 90.h,
+                                    child: CachedNetworkImage(
+                                      imageUrl:ImportantUrl.BaseImageUrl+(movie?.posterPath??''),
+                                      height: MovieWidget().imageHeight?.h,
+                                      placeholder: (context, url) =>
+                                      const Center(child: CircularProgressIndicator()),
+                                      errorWidget: (context, url, error) =>
+                                      const Icon(Icons.error, color: Colors.red),
+                                    ),
+                                  )
 
-                                ,SizedBox(width: 10.w)
-                                ,Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(movie?.title??'no title founded',
-                                        style: TextStyleApp.font14weight400colorWhite,),
-                                      SizedBox(width: 10.w),
-                                      Text( movie?.releaseDate??'no date founded',
-                                        style: TextStyleApp.font14weight400colorWhite.copyWith(color:Colors.white.withOpacity(.67)),),
-                                    ],
-                                  ),
-                                )
-                              ],
+                                  ,SizedBox(width: 10.w)
+                                  ,Expanded(
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(movie?.title??'no title founded',
+                                          style: TextStyleApp.font14weight400colorWhite,),
+                                        SizedBox(width: 10.w),
+                                        Text( movie?.releaseDate??'no date founded',
+                                          style: TextStyleApp.font14weight400colorWhite.copyWith(color:Colors.white.withOpacity(.67)),),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           );
                         }, separatorBuilder: (BuildContext context, int index) =>
