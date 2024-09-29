@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../api/results.dart';
 import '../../../api/model/movie.dart';
+import '../../../api/results.dart';
 import '../../../common/details_movie_widget.dart';
 import '../../../common/important_url.dart';
 import '../../../core/theming/colors.dart';

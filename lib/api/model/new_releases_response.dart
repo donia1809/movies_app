@@ -1,5 +1,5 @@
-import 'package:movies_app/api/model/movie.dart';
 
+import 'movie.dart';
 import 'dates.dart';
 
 /// dates : {"maximum":"2024-10-16","minimum":"2024-09-25"}

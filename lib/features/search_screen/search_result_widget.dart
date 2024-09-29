@@ -22,7 +22,7 @@ class SearchResultWidget extends StatelessWidget
           SizedBox( width: 60.w,height: 90.h,
             child: CachedNetworkImage(
               imageUrl:ImportantUrl.baseImageUrl+(movie?.posterPath??''),
-              height: const MovieWidget().imageHeight?.h,
+              height:  MovieWidget().imageHeight?.h,
               placeholder: (context, url) =>
               const Center(child: CircularProgressIndicator()),
               errorWidget: (context, url, error) =>

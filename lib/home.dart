@@ -23,7 +23,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int selectedIndex = 0;
 
-  var tab = [const HomeScreen(),  SearchScreen(), const CategoryScreen(), const WatchListScreen()];
+  var tab = [const HomeScreen(),  SearchScreen(), const CategoryScreen(),  WatchListScreen()];
 
   @override
   Widget build(BuildContext context) {

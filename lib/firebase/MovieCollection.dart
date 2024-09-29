@@ -1,6 +1,6 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:movies_app/api/model/Movie.dart';
+import 'package:movies_app/api/model/movie.dart';
 
 
   CollectionReference<Movie>getMovieCollection(){

@@ -1,11 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_app/DateUtils.dart';
-import 'package:movies_app/api/model/Movie.dart';
-import 'package:movies_app/common/DetailsMovieWidget.dart';
-import 'package:movies_app/common/ImportantUrl.dart';
-import 'package:movies_app/common/MovieWidget.dart';
+import 'package:movies_app/api/model/movie.dart';
 import 'package:movies_app/core/theming/colors.dart';
+import 'package:movies_app/date_utils.dart';
 
 import '../../common/movie_widget.dart';
 import '../../core/theming/text_style.dart';
@@ -33,7 +30,7 @@ class WatchListCard extends StatelessWidget {
             Text('${movie.title}',style: TextStyle(
               color: Colors.white
             ),),
-            Text('${movie.releaseDate?.formatDate()}',
+            Text('${movie.releaseDate?.formatDate}',
               style: TextStyleApp.font14weight400colorWhite.copyWith(color:Colors.white.withOpacity(.67)))
           ],
         ),

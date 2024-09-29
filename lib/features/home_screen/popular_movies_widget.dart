@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/date_utils.dart';
-import 'package:movies_app/api/model/movie.dart';
 import 'package:movies_app/common/important_url.dart';
 import 'package:movies_app/common/movie_widget.dart';
 import 'package:movies_app/core/theming/text_style.dart';
 
+import '../../api/model/movie.dart';
 import '../../core/theming/colors.dart';
 
 class PopularMoviesWidget extends StatelessWidget {
