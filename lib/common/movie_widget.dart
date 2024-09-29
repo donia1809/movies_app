@@ -1,11 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/api/model/Movie.dart';
-import 'package:movies_app/api/similar_model/Results.dart';
+import 'package:movies_app/api/model/movie.dart';
 import 'package:movies_app/core/theming/colors.dart';
+import '../api/results.dart';
 import '../features/home_screen/movies_details/movies_details.dart';
-import 'ImportantUrl.dart';
+import 'important_url.dart';
 
 class MovieWidget extends StatelessWidget {
   final Results? results;
@@ -22,7 +22,7 @@ class MovieWidget extends StatelessWidget {
   final String? year;
   final String? actors;
 
-  MovieWidget( {
+  const MovieWidget( {
     super.key,
     this.movie,
     this.imageHeight,
@@ -43,7 +43,7 @@ class MovieWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final String? posterPath = movie?.posterPath;
     final String imageUrl = posterPath != null
-        ? ImportantUrl.BaseImageUrl + posterPath
+        ? ImportantUrl.baseImageUrl + posterPath
         : 'default_image_url';
 
     return Stack(
@@ -53,7 +53,7 @@ class MovieWidget extends StatelessWidget {
             if (movie?.id != null) {
               Navigator.pushNamed(
                 context,
-                MoviesDetails.routeName,
+                MoviesDetailsWidget.routeName,
                 arguments: {'movieId': movie?.id},
               );
             }
@@ -73,7 +73,7 @@ class MovieWidget extends StatelessWidget {
             child: ImageIcon(
               size: bookMarkIconSize ?? 24,
               color: AppColors.grey,
-              const AssetImage('assets/images/Icon awesome-bookmark.png'),
+              const AssetImage('assets/images/icon_awesome_bookmark.png'),
             ),
           ),
         ),

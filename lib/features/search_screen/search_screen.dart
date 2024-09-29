@@ -1,18 +1,17 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/common/MovieWidget.dart';
 import 'package:movies_app/core/theming/colors.dart';
+import 'package:movies_app/features/search_screen/search_result.dart';
+import 'package:movies_app/features/search_screen/search_result_widget.dart';
 import 'package:movies_app/features/search_screen/text_field_widget.dart';
 import 'package:movies_app/features/search_screen/search_utils.dart';
-import '../../api/model/Search_response.dart';
-import '../../common/ImportantUrl.dart';
+import '../../api/search_response.dart';
 import '../../core/theming/text_style.dart';
 import '../home_screen/movies_details/movies_details.dart';
 
 class SearchScreen extends StatefulWidget {
   static const String routeName = 'search';
-    SearchScreen({super.key });
+    const SearchScreen({super.key });
 
   @override
   State<SearchScreen> createState() => _SearchScreenState();
@@ -69,25 +68,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     //no movie
                     if (!snapshot.hasData || snapshot.data!.results == null || snapshot.data!.results!.isEmpty)
                     {
-                      return Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 50.h, vertical: 50.w),
-                          child: Container(
-                            padding: EdgeInsets.symmetric(vertical: 200.h),
-                            child: Column(
-                              children: [
-                                Image.asset(('assets/images/Icon_movies.png')),
-                                SizedBox(
-                                  height: 8.h,
-                                ),
-                                Text(
-                                  'No movies found',
-                                  style: TextStyle(
-                                      color: Colors.white.withOpacity(.67)),
-                                ),
-                              ],
-                            ),
-                          ));
+                      return SearchResult();
                     }
                     //has data
                     return ListView.separated(
@@ -98,22 +79,12 @@ class _SearchScreenState extends State<SearchScreen> {
                             padding: EdgeInsets.symmetric(vertical: 10.h),
                             child: InkWell(
                               onTap: (){
-                                Navigator.pushNamed(context, MoviesDetails.routeName,
+                                Navigator.pushNamed(context, MoviesDetailsWidget.routeName,
                                  arguments: {'movieId': movie?.id},);
                               },
                               child: Row(
                                 children: [
-                                  Container( width: 60.w,height: 90.h,
-                                    child: CachedNetworkImage(
-                                      imageUrl:ImportantUrl.BaseImageUrl+(movie?.posterPath??''),
-                                      height: MovieWidget().imageHeight?.h,
-                                      placeholder: (context, url) =>
-                                      const Center(child: CircularProgressIndicator()),
-                                      errorWidget: (context, url, error) =>
-                                      const Icon(Icons.error, color: Colors.red),
-                                    ),
-                                  )
-
+                                  const SearchResultWidget()
                                   ,SizedBox(width: 10.w)
                                   ,Expanded(
                                     child: Column(

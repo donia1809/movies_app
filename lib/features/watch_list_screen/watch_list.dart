@@ -7,7 +7,7 @@ class WatchListScreen extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('watch_list'),);
+    return const Center(child: Text('watch_list'),);
   }
 
 }

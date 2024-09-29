@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/theming/colors.dart';
 import 'package:movies_app/core/theming/text_style.dart';
-
-import '../../../api/details_model/DetailsResponse.dart';
+import '../../../api/details_model/details_response.dart';
 
 class DetailsWidget extends StatelessWidget {
   final DetailsResponse details;
 
-  DetailsWidget({super.key, required this.details});
+  const DetailsWidget({super.key, required this.details});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +17,7 @@ class DetailsWidget extends StatelessWidget {
     final int movieId = arguments!['movieId'];
     print('movieId: $movieId');
 
-    return Container(
+    return SizedBox(
       width: 412.w,
       height: 492.h,
       child: Padding(
@@ -27,8 +26,9 @@ class DetailsWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Stack(children: [
-                Container(
+              Stack(alignment: Alignment.center,
+                  children: [
+                SizedBox(
                   width: double.infinity,
                   height: 230.h,
                   child: CachedNetworkImage(

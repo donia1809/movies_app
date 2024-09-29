@@ -1,9 +1,7 @@
-import 'package:movies_app/api/model/Movie.dart';
-
-import 'Geners.dart';
-import 'ProductionCompanies.dart';
-import 'ProductionCountries.dart';
-import 'SpokenLanguages.dart';
+import '../genres.dart';
+import 'production_companies.dart';
+import 'production_countries.dart';
+import 'spoken_languages.dart';
 
 /// adult : false
 /// backdrop_path : "/xJHokMbljvjADYdit5fK5VQsXEG.jpg"

@@ -16,15 +16,15 @@ class TextFieldWidget extends StatelessWidget
      decoration: InputDecoration(
        border: OutlineInputBorder(
            borderRadius: BorderRadius.circular(30),
-           borderSide: BorderSide(color: Colors.white)
+           borderSide: BorderSide(color: AppColors.white)
        ),
        enabledBorder: OutlineInputBorder(
          borderRadius: BorderRadius.circular(30),
-         borderSide: BorderSide(color: Colors.white),
+         borderSide: BorderSide(color: AppColors.white),
        ),
        focusedBorder: OutlineInputBorder(
          borderRadius: BorderRadius.circular(30),
-         borderSide: BorderSide(color: Colors.white),
+         borderSide: BorderSide(color: AppColors.white),
        ),
        fillColor: AppColors.grey.withOpacity(.58),
        filled: true,

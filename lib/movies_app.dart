@@ -27,11 +27,11 @@ class MoviesApp extends StatelessWidget {
         routes: {
           SplashScreen.routeName: (context) => const SplashScreen(),
           HomeScreen.routeName: (context) => const HomeScreen(),
-          WatchListScreen.routeName: (context) => WatchListScreen(),
-          CategoryScreen.routeName: (context) => CategoryScreen(),
-          SearchScreen.routeName: (context) => SearchScreen(),
-          Home.routeName: (context) =>  Home(),
-          MoviesDetails.routeName: (context) => MoviesDetails(),
+          WatchListScreen.routeName: (context) => const WatchListScreen(),
+          CategoryScreen.routeName: (context) => const CategoryScreen(),
+          SearchScreen.routeName: (context) => const SearchScreen(),
+          Home.routeName: (context) =>  const Home(),
+          MoviesDetailsWidget.routeName: (context) => const MoviesDetailsWidget(),
 
         },
         theme: Theming.darkTheme,
