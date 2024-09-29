@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/DateUtils.dart';
-import 'package:movies_app/api/model/Movie.dart';
-import 'package:movies_app/api/similar_model/Results.dart';
-import 'package:movies_app/common/MovieWidget.dart';
+import 'package:movies_app/date_utils.dart';
+import 'package:movies_app/api/model/movie.dart';
+import 'package:movies_app/common/movie_widget.dart';
 import 'package:movies_app/core/theming/colors.dart';
 import 'package:movies_app/core/theming/text_style.dart';
+import '../api/results.dart';
 
 class DetailsMovieWidget extends StatelessWidget {
   const DetailsMovieWidget({super.key, this.movie, this.result});
@@ -29,16 +29,16 @@ class DetailsMovieWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            MovieWidget(
-              movie: movie,
-              imageHeight: 120,
-              bookMarkIconBottomPadding: 90,
-              bookMarkIconSize: 40,
-              bookMarkIconRightPadding: 50,
-              addIconBottomPadding: 85,
-              addIconRightPadding: 45,
-              addIconSize: 18,
-            ),
+          MovieWidget(
+            movie: movie,
+            imageHeight: 120,
+            bookMarkIconBottomPadding: 90,
+            bookMarkIconSize: 40,
+            bookMarkIconRightPadding: 50,
+            addIconBottomPadding: 85,
+            addIconRightPadding: 45,
+            addIconSize: 18,
+          ),
             SizedBox(height: 10.h),
             Row(
               children: [

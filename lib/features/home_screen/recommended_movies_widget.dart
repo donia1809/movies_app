@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../api/apimanager.dart';
-import '../../common/DetailsMovieWidget.dart';
+import '../../api/api_manager.dart';
+import '../../common/details_movie_widget.dart';
 import '../../core/theming/colors.dart';
 import '../../core/theming/text_style.dart';
 
@@ -26,7 +25,7 @@ class RecommendedMoviesWidget extends StatelessWidget {
                     (context, index) => DetailsMovieWidget(
                   movie: snapshot.data?.movies![index],
                 )
-                  , separatorBuilder:  (context, index) => SizedBox( width: 6,)
+                  , separatorBuilder:  (context, index) => const SizedBox(width: 6,)
                   , itemCount: snapshot.data?.movies?.length??0,
                   scrollDirection: Axis.horizontal,
 

@@ -1,39 +1,39 @@
 /// adult : false
-/// backdrop_path : null
-/// genre_ids : [18]
-/// id : 396316
-/// original_language : "fr"
-/// original_title : "L'Occitanienne"
-/// overview : "One stormy evening in 1829, the aging writer René de Chateaubriand, takes refuge in a mountain retreat at Cauterets, a small town in the Pyrenees. Here, he meets Léontine de Villeneuve, an aristocratic woman forty years his junior, who ignites his passion and who seems to be as equally attracted to him. Under the watchful gaze of the maître d'hôtel, Chateaubriand embarks on what will be his last great love affair, with a woman he will later refer to in his writings as L'Occitanienne."
-/// popularity : 1.927
-/// poster_path : "/uR9GsZvAWmZYpeYS8C6mpLsxpfj.jpg"
-/// release_date : "2008-03-19"
-/// title : "Chateaubriand's Last Love"
+/// backdrop_path : "/Asg2UUwipAdE87MxtJy7SQo08XI.jpg"
+/// genre_ids : [28,14,27]
+/// id : 957452
+/// original_language : "en"
+/// original_title : "The Crow"
+/// overview : "Soulmates Eric and Shelly are brutally murdered when the demons of her dark past catch up with them. Given the chance to save his true love by sacrificing himself, Eric sets out to seek merciless revenge on their killers, traversing the worlds of the living and the dead to put the wrong things right."
+/// popularity : 3240.182
+/// poster_path : "/58QT4cPJ2u2TqWZkterDq9q4yxQ.jpg"
+/// release_date : "2024-08-21"
+/// title : "The Crow"
 /// video : false
-/// vote_average : 0.0
-/// vote_count : 0
+/// vote_average : 5.413
+/// vote_count : 317
+
 class Results {
   Results({
-    this.adult,
-    this.backdropPath,
-    this.genreIds,
-    this.id,
-    this.originalLanguage,
-    this.originalTitle,
-    this.overview,
-    this.popularity,
-    this.posterPath,
-    this.releaseDate,
-    this.title,
-    this.video,
-    this.voteAverage,
-    this.voteCount,
-  });
+      this.adult, 
+      this.backdropPath, 
+      this.genreIds, 
+      this.id, 
+      this.originalLanguage, 
+      this.originalTitle, 
+      this.overview, 
+      this.popularity, 
+      this.posterPath, 
+      this.releaseDate, 
+      this.title, 
+      this.video, 
+      this.voteAverage, 
+      this.voteCount,});
 
   Results.fromJson(dynamic json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
-    genreIds = json['genre_ids'] != null ? List<num>.from(json['genre_ids']) : [];
+    genreIds = json['genre_ids'] != null ? json['genre_ids'].cast<num>() : [];
     id = json['id'];
     originalLanguage = json['original_language'];
     originalTitle = json['original_title'];
@@ -46,9 +46,8 @@ class Results {
     voteAverage = json['vote_average'];
     voteCount = json['vote_count'];
   }
-
   bool? adult;
-  dynamic backdropPath;
+  String? backdropPath;
   List<num>? genreIds;
   num? id;
   String? originalLanguage;
@@ -80,4 +79,5 @@ class Results {
     map['vote_count'] = voteCount;
     return map;
   }
+
 }

@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/api/model/Movie.dart';
+import 'package:movies_app/api/model/movie.dart';
 import 'package:movies_app/features/home_screen/movies_details/future_builder_widget.dart';
-import 'package:movies_app/features/home_screen/movies_details/similar_movie_widget.dart';
-import '../../../api/apimanager.dart';
-import '../../../api/details_model/DetailsResponse.dart';
-import '../../../api/similar_model/SimilarResponse.dart';
 import '../../../core/theming/colors.dart';
 import '../../../core/theming/text_style.dart';
-import 'details.dart';
 
-class MoviesDetails extends StatelessWidget {
+class MoviesDetailsWidget extends StatelessWidget {
   static const routeName = 'details';
   final Movie? movie;
 
-  MoviesDetails({super.key, this.movie});
+  const MoviesDetailsWidget({super.key, this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +33,7 @@ class MoviesDetails extends StatelessWidget {
           style: TextStyleApp.font14weight400colorWhite,
         ),
       ),
-      body:  FutureBuilderWidget(),
+      body:  const FutureBuilderWidget(),
     );
   }
 }

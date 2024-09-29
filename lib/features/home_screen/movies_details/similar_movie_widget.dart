@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/api/similar_model/Results.dart';
-import 'package:movies_app/common/MovieWidget.dart';
-import '../../../api/model/Movie.dart';
-import '../../../common/DetailsMovieWidget.dart';
-import '../../../common/ImportantUrl.dart';
+import '../../../api/results.dart';
+import '../../../api/model/movie.dart';
+import '../../../common/details_movie_widget.dart';
+import '../../../common/important_url.dart';
 import '../../../core/theming/colors.dart';
 import '../../../core/theming/text_style.dart';
 
@@ -37,13 +36,12 @@ class SimilarMovieWidget extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   final movieResult = similarMovies![index];
-                  return DetailsMovieWidget(
+                   return DetailsMovieWidget(
                     result: movieResult,
                     movie:  Movie(
                       posterPath: movieResult.posterPath != null && movieResult.posterPath!.isNotEmpty
-                      ? ImportantUrl.BaseImageUrl + movieResult.posterPath!
+                      ? ImportantUrl.baseImageUrl + movieResult.posterPath!
                           : null,))
-
                   ;
                 }),
           ),

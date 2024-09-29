@@ -1,4 +1,4 @@
-import 'package:movies_app/api/model/Movie.dart';
+import 'package:movies_app/api/model/movie.dart';
 
 
 

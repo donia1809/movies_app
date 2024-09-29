@@ -1,7 +1,6 @@
-import 'package:movies_app/api/model/Movie.dart';
+import 'package:movies_app/api/model/movie.dart';
 
-import 'Dates.dart';
-import 'Movie.dart';
+import 'dates.dart';
 
 /// dates : {"maximum":"2024-10-16","minimum":"2024-09-25"}
 /// page : 1

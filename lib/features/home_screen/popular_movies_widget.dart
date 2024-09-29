@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/DateUtils.dart';
-import 'package:movies_app/api/model/Movie.dart';
-import 'package:movies_app/common/ImportantUrl.dart';
-import 'package:movies_app/common/MovieWidget.dart';
+import 'package:movies_app/date_utils.dart';
+import 'package:movies_app/api/model/movie.dart';
+import 'package:movies_app/common/important_url.dart';
+import 'package:movies_app/common/movie_widget.dart';
 import 'package:movies_app/core/theming/text_style.dart';
+
+import '../../core/theming/colors.dart';
 
 class PopularMoviesWidget extends StatelessWidget {
   PopularMoviesWidget(this.movie,{super.key});
@@ -27,7 +29,7 @@ class PopularMoviesWidget extends StatelessWidget {
                 child: Image(
 
                     fit: BoxFit.fill,
-                    image: NetworkImage(ImportantUrl.BaseImageUrl+movie!.posterPath!)),
+                    image: NetworkImage(ImportantUrl.baseImageUrl+movie!.posterPath!)),
               ),
               Padding(
                 padding: EdgeInsets.fromLTRB(150.w,10,0,15),
@@ -47,7 +49,7 @@ class PopularMoviesWidget extends StatelessWidget {
             ],
           ),
         ),
-        const Center(child: Icon(Icons.play_circle_fill, size: 80,color: Colors.white,)),
+         Center(child: Icon(Icons.play_circle_fill, size: 80,color: AppColors.white,)),
         Positioned(top: 120,
             child: MovieWidget( imageHeight: 210,movie: movie,bookMarkIconSize: 100,addIconSize: 18,
               bookMarkIconBottomPadding: 142, bookMarkIconRightPadding: 78,

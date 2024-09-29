@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/theming/colors.dart';
 import 'package:movies_app/core/theming/text_style.dart';
-
-import '../../api/apimanager.dart';
-import '../../common/MovieWidget.dart';
+import '../../api/api_manager.dart';
+import '../../common/movie_widget.dart';
 
 class NewReleasesWidget extends StatelessWidget {
   const NewReleasesWidget({super.key});

@@ -22,23 +22,21 @@ class HomeScreen extends StatelessWidget
      } if(snapshot.hasError){
        return const Center(child: Text('Something went wrong' , style: TextStyle( color: Colors.white),));
      }
-       return SingleChildScrollView(
-         child: Column(
-          children: [
-            CarouselSlider.builder(itemCount:3
-                , itemBuilder: (context, index, realIndex) => PopularMoviesWidget(
-                snapshot.data?.popularMovies![index]
-                )
-               , options:  CarouselOptions(
-                   autoPlay: true,
-                  height: 330.h,
-                  viewportFraction: 1
-                )),
-           const NewReleasesWidget(),
-            const SizedBox( height: 30,),
-           const RecommendedMoviesWidget()
-           ],
-         ),
+       return Column(
+        children: [
+          CarouselSlider.builder(itemCount:3
+              , itemBuilder: (context, index, realIndex) => PopularMoviesWidget(
+              snapshot.data?.PopularMovies![index]
+              )
+             , options:  CarouselOptions(
+                 autoPlay: true,
+                height: 330.h,
+                viewportFraction: 1
+              )),
+         const NewReleasesWidget(),
+          const SizedBox( height: 30,),
+         const RecommendedMoviesWidget()
+         ],
        );;
   });
 

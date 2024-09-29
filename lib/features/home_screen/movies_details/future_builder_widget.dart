@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/features/home_screen/movies_details/similar_movie_widget.dart';
 
-import '../../../api/apimanager.dart';
-import '../../../api/details_model/DetailsResponse.dart';
-import '../../../api/model/Movie.dart';
-import '../../../api/similar_model/SimilarResponse.dart';
+import '../../../api/api_manager.dart';
+import '../../../api/details_model/details_response.dart';
+import '../../../api/model/movie.dart';
+import '../../../api/similar_model/similar_response.dart';
 import '../../../core/theming/colors.dart';
 import 'details.dart';
 
