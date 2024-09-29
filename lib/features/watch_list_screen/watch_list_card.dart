@@ -7,6 +7,7 @@ import 'package:movies_app/common/ImportantUrl.dart';
 import 'package:movies_app/common/MovieWidget.dart';
 import 'package:movies_app/core/theming/colors.dart';
 
+import '../../common/movie_widget.dart';
 import '../../core/theming/text_style.dart';
 class WatchListCard extends StatelessWidget {
 
