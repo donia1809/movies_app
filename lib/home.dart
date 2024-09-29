@@ -10,7 +10,7 @@ import 'features/watch_list_screen/watch_list.dart';
 ////////////////////////////////////////////////////
 
 class Home extends StatefulWidget {
-  static const String routeName = '?';
+  static const String routeName = '?.';
 
   const Home({super.key});
 
@@ -23,7 +23,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int selectedIndex = 0;
 
-  var tab = [const HomeScreen(),  SearchScreen(), const CategoryScreen(), const WatchListScreen()];
+  var tab = [const HomeScreen(),  SearchScreen(), const CategoryScreen(),  WatchListScreen()];
 
   @override
   Widget build(BuildContext context) {
