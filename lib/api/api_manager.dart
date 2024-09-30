@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:movies_app/api/category_model/movies_details_response.dart';
-import 'package:movies_app/api/details_model/details_response.dart';
-import 'package:movies_app/api/model/new_releases_response.dart';
-import 'package:movies_app/api/model/popular_movies_response.dart';
-import 'package:movies_app/api/model/recommended_movies_response.dart';
-import 'package:movies_app/api/similar_model/similar_response.dart';
-import 'category_model/movies_list_response.dart';
-import 'search_response.dart';
+import 'model/category_model/movies_details_response.dart';
+import 'model/category_model/movies_list_response.dart';
+import 'model/details_model/details_response.dart';
+import 'model/home_model/new_releases_response.dart';
+import 'model/home_model/popular_movies_response.dart';
+import 'model/home_model/recommended_movies_response.dart';
+import 'model/search_response.dart';
+import 'model/similar_model/similar_response.dart';
 
 class Endpoints
 {
@@ -33,11 +33,11 @@ class ApiManager
   /////Popular
   static Future<PopularMoviesResponse> getPopularMovies() async {
     var url = Uri.https(baseUrl, Endpoints.popular);
-    var response =
-        await http.get(url, headers: {'Authorization': authorizationKey});
+    var response = await http.get(url, headers: {'Authorization': authorizationKey});
     var json = jsonDecode(response.body);
     var popularMovies = PopularMoviesResponse.fromJson(json);
     return popularMovies;
+
   }
 
   /////New Release
@@ -138,14 +138,15 @@ class ApiManager
       throw Exception('Error in fetching movie details: $e');
     }
   }
+
+  /////Category Details
   static Future<MoviesDetails> getMoviesDetails(String genreId) async {
     try {
       var url = Uri.https(baseUrl, Endpoints.moviesDetails, {'with_genres': genreId}); // Change 'Id' to 'with_genres'
       var response = await http.get(url, headers: {'Authorization': authorizationKey2});
       if (response.statusCode == 200) {
         final jsonResponse = json.decode(response.body);
-        var movieDetails = MoviesDetails.fromJson(jsonResponse);
-        return movieDetails;
+        return MoviesDetails.fromJson(jsonResponse);
       } else {
         throw Exception('Failed to load movies: ${response.statusCode} ${response.body}');
       }
@@ -155,6 +156,7 @@ class ApiManager
     }
   }
 
+  /////Category Movies List
   static Future<MoviesListResponse> getMoviesList() async {
     try {
       // Correctly build the URL with scheme
@@ -173,5 +175,4 @@ class ApiManager
       rethrow;
     }
   }
-
 }

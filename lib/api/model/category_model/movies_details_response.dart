@@ -6,12 +6,14 @@ import '../results.dart';
 /// total_results : 923465
 
 class MoviesDetails {
-  MoviesDetails(String genreId,  {
+  MoviesDetails(
+    String genreId, {
     //this.genreId,
-      this.page, 
-      this.results, 
-      this.totalPages, 
-      this.totalResults,});
+    this.page,
+    this.results,
+    this.totalPages,
+    this.totalResults,
+  });
 
   MoviesDetails.fromJson(dynamic json) {
     page = json['page'];
@@ -23,13 +25,15 @@ class MoviesDetails {
     }
     totalPages = json['total_pages'];
     totalResults = json['total_results'];
-    //genreId = json['genre_id'];
+//genreId = json['genre_id'];
   }
+
   num? page;
   List<Results>? results;
   num? totalPages;
   num? totalResults;
-  //String?genreId;
+
+//String?genreId;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -39,8 +43,7 @@ class MoviesDetails {
     }
     map['total_pages'] = totalPages;
     map['total_results'] = totalResults;
-    // map['genre_id']= genreId;
+// map['genre_id']= genreId;
     return map;
   }
-
 }

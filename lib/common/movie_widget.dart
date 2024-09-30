@@ -1,13 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/api/model/movie.dart';
 import 'package:movies_app/core/theming/colors.dart';
-import '../AppUtils.dart';
-import '../api/category_model/movies_details_response.dart';
-import '../api/results.dart';
+import '../app_utils.dart';
+import '../api/model/home_model/movie.dart';
+import '../api/model/results.dart';
 import '../features/home_screen/movies_details/movies_details.dart';
-import '../firebase/MovieCollection.dart';
+import '../firebase/movie_collection.dart';
 import 'important_url.dart';
 
 class MovieWidget extends StatefulWidget {
@@ -81,10 +80,10 @@ class _MovieWidgetState extends State<MovieWidget> {
             child: ImageIcon(
                 size: widget.bookMarkIconSize,
                 color:  widget.movie!.watchLater!? AppColors.yellow1:
-                Color(0xff514F4F)
+                const Color(0xff514F4F)
                 ,
                 const AssetImage(
-                  'assets/images/Icon awesome-bookmark.png',
+                  'assets/images/icon_awesome_bookmark.png',
                 )),
           ),
         ),
@@ -92,7 +91,7 @@ class _MovieWidgetState extends State<MovieWidget> {
             bottom: widget.addIconBottomPadding?.h,
             right: widget.addIconRightPadding?.w,
             child: IconButton(onPressed:widget.movie!.watchLater!?null:() {
-              AddmovietoWatchlaterList();
+              addMovieToWatchLaterList();
             }, icon: widget.movie!.watchLater!?Icon(Icons.check,size: widget.addIconSize,
               color: Colors.white,):Icon(Icons.add, color: Colors.white,size: widget.addIconSize,)
             )),
@@ -100,19 +99,19 @@ class _MovieWidgetState extends State<MovieWidget> {
     );
   }
 
-  AddmovietoWatchlaterList()async{
+  addMovieToWatchLaterList()async{
     try{
-      showLoadingdialog(context);
-      await AddmovietoWatchList(widget.movie!);
-      await UpdateMovie(widget.movie!);
-      hideLoadingdialog(context);
+      showLoadingDialog(context);
+      await addMovieToWatchList(widget.movie!);
+      await updateMovie(widget.movie!);
+      hideLoadingDialog(context);
       widget.movie?.watchLater = true;
       setState(() {
 
       });
     }catch(e){
       showMessageDialog(context,  () {
-        AddmovietoWatchlaterList();
+        addMovieToWatchLaterList();
       },);
 
     }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/features/categories_screen/movies_screen.dart';
 import 'package:movies_app/api/api_manager.dart';
-import '../../api/genres.dart';
-import '../../api/category_model/movies_list_response.dart';
+import '../../api/model/category_model/movies_list_response.dart';
+import '../../api/model/genres.dart';
 import '../../core/theming/colors.dart';
 import '../../core/theming/text_style.dart';
 
@@ -26,7 +26,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
 
   Future<void> fetchGenres() async {
     try {
-      MoviesListResponse response = await ApiManager.getMoviesList();
+      MoviesListResponse response = await ApiManager.getMoviesList(); // No need to pass Id and name
 
       setState(() {
         genres = response.genres ?? [];
@@ -50,7 +50,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -60,8 +60,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
           ),
           Expanded(
             child: isLoading
-                ?  Center(child: CircularProgressIndicator(color: AppColors.white))
-                :  GridView.builder(
+                ? Center(child: CircularProgressIndicator(color: AppColors.white))
+                : GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 1,

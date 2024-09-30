@@ -1,4 +1,4 @@
-import 'package:movies_app/api/model/movie.dart';
+import 'home_model/movie.dart';
 
 /// page : 1
 /// results : []

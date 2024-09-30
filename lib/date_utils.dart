@@ -4,8 +4,8 @@ extension DateFormatting on String{
  String formatDate(){
     var inputFormat = DateFormat('yyyy-MM-dd');
     var inputDate = inputFormat.parse(this);
-    var outpuFormat = DateFormat('yyyy');
-    var outputDate = outpuFormat.format(inputDate);
+    var outputFormat = DateFormat('yyyy');
+    var outputDate = outputFormat.format(inputDate);
     return outputDate;
   }
 }

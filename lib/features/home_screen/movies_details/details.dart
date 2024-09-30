@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/theming/colors.dart';
 import 'package:movies_app/core/theming/text_style.dart';
-import '../../../api/details_model/details_response.dart';
+import '../../../api/model/details_model/details_response.dart';
 
 class DetailsWidget extends StatelessWidget {
   final DetailsResponse details;

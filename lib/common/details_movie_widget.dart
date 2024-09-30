@@ -4,8 +4,8 @@ import 'package:movies_app/date_utils.dart';
 import 'package:movies_app/common/movie_widget.dart';
 import 'package:movies_app/core/theming/colors.dart';
 import 'package:movies_app/core/theming/text_style.dart';
-import '../api/model/movie.dart';
-import '../api/results.dart';
+import '../api/model/home_model/movie.dart';
+import '../api/model/results.dart';
 
 class DetailsMovieWidget extends StatelessWidget {
   const DetailsMovieWidget({super.key, this.movie, this.result});
@@ -43,20 +43,22 @@ class DetailsMovieWidget extends StatelessWidget {
             Row(
               children: [
                 Icon(Icons.star, color: AppColors.yellow1, size: 12),
-                Text(
-                  result?.voteAverage?.toStringAsFixed(1) ?? 'No Rating',
+                Text(  overflow: TextOverflow.ellipsis,
+                  movie?.voteAverage?.toStringAsFixed(1) ?? result?.voteAverage?.toStringAsFixed(1) ?? 'No Rating',
+                  semanticsLabel: result?.voteAverage?.toStringAsFixed(1)?? 'No Rating',
                   style: TextStyleApp.font10weight400colorWhite,
                 ),
               ],
             ),
             const SizedBox(height: 8),
-            Text(
-              result?.title ?? 'Unknown Title',
+            Text(  overflow: TextOverflow.ellipsis,
+              movie?.title ?? result?.title ?? 'Unknown Title',
+              semanticsLabel: result?.voteAverage?.toStringAsFixed(1)?? 'No Rating',
               style: TextStyleApp.font10weight400colorWhite,
             ),
             const SizedBox(height: 8),
-            Text(
-              '${result?.releaseDate?.formatDate() ?? 'Unknown Date'}  ${result?.adult == true ? 'R' : 'G'}',
+            Text(  overflow: TextOverflow.ellipsis,
+              '${movie?.releaseDate?.formatDate() ?? result?.releaseDate?.formatDate() ?? 'Unknown Date'}  ${result?.adult == true ? 'R' : 'G'}',
               textAlign: TextAlign.start,
               style: TextStyleApp.font8weight400colorGrey2,
             ),

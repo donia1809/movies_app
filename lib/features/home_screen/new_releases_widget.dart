@@ -32,9 +32,9 @@ class NewReleasesWidget extends StatelessWidget {
                   imageHeight: 210,
                   bookMarkIconSize: 80,
                   addIconSize: 18,
-                  bookMarkIconBottomPadding: 78,
+                  bookMarkIconBottomPadding: 75,
                   bookMarkIconRightPadding: 38,
-                  addIconBottomPadding: 100,
+                  addIconBottomPadding: 89,
                   addIconRightPadding: 52,
                 ),);
             },
