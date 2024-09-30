@@ -143,7 +143,7 @@ class ApiManager
   static Future<MoviesDetails> getMoviesDetails(String genreId) async {
     try {
       var url = Uri.https(baseUrl, Endpoints.moviesDetails, {'with_genres': genreId}); // Change 'Id' to 'with_genres'
-      var response = await http.get(url, headers: {'Authorization': authorizationKey2});
+      var response = await http.get(url, headers: {'Authorization': authorizationKey});
       if (response.statusCode == 200) {
         final jsonResponse = json.decode(response.body);
         return MoviesDetails.fromJson(jsonResponse);
@@ -161,7 +161,7 @@ class ApiManager
     try {
       // Correctly build the URL with scheme
       var url = Uri.https(baseUrl, Endpoints.moviesList);
-      var response = await http.get(url, headers: {'Authorization': authorizationKey2});
+      var response = await http.get(url, headers: {'Authorization': authorizationKey});
 
       if (response.statusCode == 200) {
         var json = jsonDecode(response.body);
